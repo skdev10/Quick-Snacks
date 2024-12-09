@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report an Issue</title>
+    <link rel="icon" href="logo copy.png" type="icon/type">
+    <link
+    href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet"
+  />
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'poppins';
+            background-color: #f4f7fa;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: rgb(253, 14, 14);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 4px solid rgb(253, 14, 14);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 600;
+        }
+
+        header p {
+            margin-top: 10px;
+            font-size: 1.1rem;
+        }
+
+        /* Main Container */
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 40px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            font-size: 1rem;
+        }
+
+        /* Section Heading */
+        .container h2 {
+            color:rgb(253, 14, 14);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        /* Form Styles */
+        .report-form {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .report-form label {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .report-form input, 
+        .report-form textarea {
+            width: 100%;
+            padding: 12px;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fafafa;
+            transition: border 0.3s ease;
+        }
+
+        .report-form input:focus,
+        .report-form textarea:focus {
+            border: 1px solid rgb(253, 14, 14);
+            background-color: #ffffff;
+        }
+
+        .report-form button {
+            padding: 12px 24px;
+            background-color: rgb(253, 14, 14);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .report-form button:hover {
+            background-color: rgb(233, 44, 44);
+        }
+
+        /* Contact Info Section */
+        .contact-info {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+        }
+
+        .contact-info h3 {
+            color:rgb(253, 14, 14);
+            margin-bottom: 15px;
+        }
+
+        .contact-info p {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .contact-info a {
+            color:rgb(253, 14, 14);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Report an Issue</h1>
+        <p>Your feedback is valuable to us. Please provide detailed information so we can assist you better.</p>
+    </header>
+
+    <div class="container">
+        <h2>Submit an Issue Report</h2>
+
+        <form class="report-form" action="https://api.web3forms.com/submit" method="POST">
+
+            <input type="hidden" name="access_key" value="96b890d0-ef09-4e21-ab38-2c2f8b21e1c3" />
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+
+            <label for="issue">Describe the Issue:</label>
+            <textarea id="issue" name="issue" rows="5" placeholder="Provide details about the issue..." required></textarea>
+
+            <label for="screenshot">Attach a Screenshot (optional):</label>
+            <input type="file" id="screenshot" name="screenshot">
+
+            <button type="submit">Submit Report</button>
+        </form>
+
+        <div class="contact-info">
+            <h3>Need Immediate Assistance?</h3>
+            <p>If you need urgent assistance, feel free to reach out to us directly:</p>
+            <p>Email: <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox">teameproject559@gmail.com</a></p>
+            <p>Phone: <a href="tel:1-800-123-4567">1-800-123-4567</a></p>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,579 @@
+section {
+    padding: 60px 0;
+    min-height: 100vh;
+}
+a, a:hover, a:focus, a:active {
+    text-decoration: none;
+    outline: none;
+}
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}.bg-gray {
+    background-color: #f9f9f9;
+}
+
+.site-heading h2 {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.site-heading h2 span {
+  color: #00a01d;
+}
+
+.site-heading h4 {
+  display: inline-block;
+  padding-bottom: 20px;
+  position: relative;
+  text-transform: capitalize;
+  z-index: 1;
+}
+
+.site-heading h4::before {
+  background: #00a01d none repeat scroll 0 0;
+  bottom: 0;
+  content: "";
+  height: 2px;
+  left: 50%;
+  margin-left: -25px;
+  position: absolute;
+  width: 50px;
+}
+
+.site-heading {
+  margin-bottom: 60px;
+  overflow: hidden;
+  margin-top: -5px;
+}
+
+.carousel-shadow .owl-stage-outer {
+  margin: -15px -15px 0;
+  padding: 15px;
+}
+
+.we-offer-area .our-offer-carousel .owl-dots .owl-dot span {
+  background: #ffffff none repeat scroll 0 0;
+  border: 2px solid;
+  height: 15px;
+  margin: 0 5px;
+  width: 15px;
+}
+
+.we-offer-area .our-offer-carousel .owl-dots .owl-dot.active span {
+  background: #00a01d none repeat scroll 0 0;
+  border-color: #00a01d;
+}
+
+.we-offer-area .item {
+  min-height: 320px; 
+  background: #ffffff none repeat scroll 0 0;
+  border-left: 2px solid #00a01d;
+  -moz-box-shadow: 0 0 10px #cccccc;
+  -webkit-box-shadow: 0 0 10px #cccccc;
+  -o-box-shadow: 0 0 10px #cccccc;
+  box-shadow: 0 0 10px #cccccc;
+  overflow: hidden;
+  padding: 30px;
+  position: relative;
+  z-index: 1;
+}
+.we-offer-area .item {
+  height: 350px; /* Set a fixed height for all items */
+  padding: 30px;
+}
+
+
+.we-offer-area.text-center .item {
+  background: #ffffff none repeat scroll 0 0;
+  border: medium none;
+  padding: 67px 40px 64px;
+}
+
+.we-offer-area.text-center .item i {
+  background: #00a01d none repeat scroll 0 0;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  color: #ffffff;
+  font-size: 40px;
+  height: 80px;
+  line-height: 80px;
+  position: relative;
+  text-align: center;
+  width: 80px;
+  z-index: 1;
+  transition: all 0.35s ease-in-out;
+  -webkit-transition: all 0.35s ease-in-out;
+  -moz-transition: all 0.35s ease-in-out;
+  -ms-transition: all 0.35s ease-in-out;
+  -o-transition: all 0.35s ease-in-out;
+  margin-bottom: 25px;
+}
+
+.we-offer-area.text-center .item i::after {
+  border: 2px solid #00a01d;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  content: "";
+  height: 90px;
+  left: -5px;
+  position: absolute;
+  top: -5px;
+  width: 90px;
+  z-index: -1;
+  transition: all 0.35s ease-in-out;
+  -webkit-transition: all 0.35s ease-in-out;
+  -moz-transition: all 0.35s ease-in-out;
+  -ms-transition: all 0.35s ease-in-out;
+  -o-transition: all 0.35s ease-in-out;
+}
+
+.we-offer-area.item-border-less .item {
+  border: medium none;
+}
+
+.we-offer-area .our-offer-items.less-carousel .equal-height {
+  margin-bottom: 30px;
+}
+
+.we-offer-area.item-border-less .item .number {
+  font-family: "Poppins",sans-serif;
+  font-size: 50px;
+  font-weight: 900;
+  opacity: 0.1;
+  position: absolute;
+  right: 30px;
+  top: 30px;
+}
+
+.our-offer-carousel.center-active .owl-item:nth-child(2n) .item,
+.we-offer-area.center-active .single-item:nth-child(2n) .item {
+  background: #00a01d none repeat scroll 0 0;
+}
+
+.our-offer-carousel.center-active .owl-item:nth-child(2n) .item i,
+.our-offer-carousel.center-active .owl-item:nth-child(2n) .item h4,
+.our-offer-carousel.center-active .owl-item:nth-child(2n) .item p,
+.we-offer-area.center-active .single-item:nth-child(2n) .item i,
+.we-offer-area.center-active .single-item:nth-child(2n) .item h4,
+.we-offer-area.center-active .single-item:nth-child(2n) .item p {
+  color: #ffffff;
+}
+
+.we-offer-area .item i {
+  color: rgb(253, 14, 14); /* Updated color */
+  display: inline-block;
+  font-size: 60px;
+  margin-bottom: 20px;
+  transition: all 0.35s ease-in-out;
+}
+.we-offer-area .item h4 {
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.we-offer-area .item p {
+  margin: 0;
+}
+
+.we-offer-area .item i,
+.we-offer-area .item h4,
+.we-offer-area .item p {
+  transition: all 0.35s ease-in-out;
+  -webkit-transition: all 0.35s ease-in-out;
+  -moz-transition: all 0.35s ease-in-out;
+  -ms-transition: all 0.35s ease-in-out;
+  -o-transition: all 0.35s ease-in-out;
+}
+
+.we-offer-area .item::after {
+  background:  rgb(253, 14, 14) none repeat scroll 0 0;
+  content: "";
+  height: 100%;
+  left: -100%;
+  position: absolute;
+  top: 0;
+  transition: all 0.35s ease-in-out;
+  -webkit-transition: all 0.35s ease-in-out;
+  -moz-transition: all 0.35s ease-in-out;
+  -ms-transition: all 0.35s ease-in-out;
+  -o-transition: all 0.35s ease-in-out;
+  width: 100%;
+  z-index: -1;
+}
+
+.we-offer-area .item:hover::after {
+  background: rgb(253, 14, 14) none repeat scroll 0 0;
+  left: 0;
+}
+
+.we-offer-area .item:hover i,
+.we-offer-area .item:hover h4,
+.we-offer-area .item:hover p {
+  color: #ffffff !important;
+}
+.we-offer-area.text-center .item i {
+  background: rgb(253, 14, 14); /* Updated background color */
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  font-size: 40px;
+  height: 80px;
+  line-height: 80px;
+  position: relative;
+  text-align: center;
+  width: 80px;
+  z-index: 1;
+  transition: all 0.35s ease-in-out;
+  margin-bottom: 25px;
+}
+
+.we-offer-area.text-center .item:hover i::after {
+  border-color: #ffffff !important;
+}
+
+.we-offer-area.text-center .item:hover i {
+  background-color: #ffffff !important;
+  color: rgb(253, 14, 14) !important;
+}
+
+
+.we-offer-area.text-left .item i {
+  background:  rgb(253, 14, 14) none repeat scroll 0 0;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  color: #ffffff;
+  display: inline-block;
+  font-size: 60px;
+  height: 100px;
+  line-height: 100px;
+  margin-bottom: 30px;
+  position: relative;
+  width: 100px;
+  z-index: 1;
+  text-align: center;
+}
+
+.we-offer-area.text-left .item i::after {
+  border: 2px solid  rgb(253, 14, 14);
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  content: "";
+  height: 120px;
+  left: -10px;
+  position: absolute;
+  top: -10px;
+  width: 120px;
+}
+
+/* Contact Us */
+
+/* General Styles for Header */
+header {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #f9f9f9;
+}
+
+header h1 {
+    font-size: 32px;
+    color: rgb(253, 14, 14);
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Container for Two-Column Layout */
+.container2 {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Column Styling */
+.column {
+    flex: 1;
+    min-width: 48%;  /* Make each column take almost half of the container */
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    animation: fadeIn 1s ease forwards;
+    opacity: 0; /* Initial fade-in effect */
+}
+
+/* Contact Form Styling */
+.form-column h2 {
+    font-size: 24px;
+    color: rgb(253, 14, 14);
+    margin-bottom: 20px;
+}
+
+.form-column label {
+    display: block;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 6px;
+}
+
+.form-column input,
+.form-column textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.form-column input:focus,
+.form-column textarea:focus {
+    border-color: rgb(253, 14, 14);
+    box-shadow: 0 0 8px rgba(253, 14, 14, 0.4);
+}
+
+.form-column button {
+    display: inline-block;
+    width: 100%;
+    color: #fff;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.form-column button:hover {
+    background-color: black;
+    transform: translateY(-2px);
+}
+
+/* Map Styling */
+.map-column iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    min-height: 450px; /* Ensures the map takes appropriate height */
+    border-radius: 10px;
+}
+
+/* Animation for Fade-In */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design for Small Screens */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stack the form and map for smaller screens */
+    }
+    .column {
+        min-width: 100%; /* Full width on smaller screens */
+    }
+}
+
+.delivery-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px;
+  background-color: #fff;
+  border-radius: 12px;
+  margin: 40px auto;
+  max-width: 1200px;
+  opacity: 0;
+  animation: fadeIn 1s forwards; /* Animation to fade in */
+}
+
+/* Left Column (Food Images) */
+.food-images {
+  display: flex;
+  flex-direction: column;
+  gap: -10px;
+  position: relative;
+}
+
+.food-images img {
+  width: 250px; /* Increased image size */
+  height: 250px; /* Increased image size */
+  border-radius: 12px;
+  object-fit: cover;
+  transition: transform 0.4s ease-in-out, opacity 0.4s ease;
+  opacity: 0;
+}
+
+/* Add fade-in animation for images */
+.food-images img:nth-child(1) {
+  animation: fadeInImage 0.6s 0.2s forwards;
+}
+
+.food-images img:nth-child(2) {
+  animation: fadeInImage 0.6s 0.4s forwards;
+}
+
+/* Add overlap effect for images */
+.food-img-container:nth-child(1) {
+  transform: translateY(-15px) rotate(-6deg);
+  z-index: 1;
+}
+
+.food-img-container:nth-child(2) {
+  transform: translateY(15px) rotate(6deg);
+  z-index: 0;
+}
+
+/* Hover effect for images */
+.food-img-container img:hover {
+  transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* Right Column (Text and Info) */
+.info {
+  flex: 1;
+  padding-left: 40px;
+  max-width: 500px;
+  opacity: 0;
+  animation: fadeInText 1s 0.6s forwards; /* Fade-in text animation */
+}
+
+.info h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.info p {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 30px;
+  line-height: 1.6;
+  letter-spacing: 0.5px;
+}
+
+/* Call-to-action Buttons */
+.cta-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.cta-btn {
+  padding: 14px 30px;
+  font-size: 18px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  font-weight: bold;
+}
+
+.cta-btn:hover {
+  background-color: #45a049;
+  transform: translateY(-2px); /* Slight lift on hover */
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  0% {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Animation for food images */
+@keyframes fadeInImage {
+  0% {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Animation for text */
+@keyframes fadeInText {
+  0% {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .delivery-section {
+      display:-ms-flexbox;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px;
+  }
+
+  .food-images {
+      flex-direction: column;
+      gap: 10px;
+      max-width: none;
+  }
+
+  .food-images img {
+      width: 180px;
+      height: 180px;
+  }
+
+  .info {
+    margin-top: 60px;
+      text-align: center;
+      padding-left: 0;
+      max-width: 100%;
+  }
+
+  .cta-btn {
+      padding: 12px 25px;
+      font-size: 16px;
+  }
+}
+
+@media (max-width: 800px) {
+  .food-images img {
+      width: 150px;
+      height: 150px;
+  }
+
+  .cta-btn {
+      padding: 10px 20px;
+      font-size: 14px;
+  }
+}

@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop</title>
+    <link rel="icon" href="logo copy.png" type="icon/type">
+    <link rel="stylesheet" href="services.css">
+    <!-- .....Poppins.... -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- BootStrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <!-- font -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+    href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet"
+  />
+    <style>
+      /* @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@200&display=swap"); */
+      body {
+        font-family: "Poppins", sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+  
+      /* Navbar Styling */
+      .navbar {
+        background-color: #fff5f2;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        padding: 1rem 1.5rem;
+        position: fixed;
+        top: 0;
+        height: 15vh;
+        width: 100%;
+        z-index: 1000;
+      }
+  
+      .navbar-brand img {
+        margin-left: -5px;
+        margin-top: 10px;
+        height:22.9vh;
+        width: 168px;
+      }
+  
+      .nav-link {
+        font-size: 19px;
+        font-family: poppins;
+        color: #333333;
+        /* font-weight: 500; */
+        padding: 0.5rem 1rem;
+        transition: color 0.1s, border-bottom 0.1s;
+      }
+  
+      .nav-link:hover, .nav-link.active {
+        /* color:  var(--clr-primary); */
+        border-bottom: 2px solid  red;
+        transition: 0.1s;
+      }
+  
+      .navbar-toggler {
+        margin-top: -20px;
+        font-size: 1.5rem;
+        border: none;
+        color: #333333;
+      }
+      .dropdown-menu{
+        background-color: #fff5f2;
+        width: auto;
+        height: auto;
+      }
+      .dropdown-menu .dropdown-item{
+        font-size: 18px;
+      }
+      .dropdown-menu .dropdown-item:hover{
+        border-bottom: 2px solid  red;
+        transition: 0.1s;
+      }
+  
+      /* Mobile Sidebar Styling */
+      .sidebar {
+        position: fixed;
+        top: 0;
+        left: -300px;
+        width: 250px;
+        height: 100%;
+        background-color:  #fff5f2;
+        box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        padding: 2rem 1.5rem;
+        gap: 1rem;
+        transition: left 0.3s ease-in-out;
+        z-index: 1050;
+      }
+      .sidebar .dropdown-menu{
+        height: auto;
+        width: auto;
+      }
+  
+      .sidebar.show {
+        left: 0;
+      }
+  
+      .sidebar .close-btn {
+        font-size: 1.5rem;
+        background: none;
+        border: none;
+        align-self: flex-end;
+        cursor: pointer;
+      }
+  
+      .sidebar .nav-link {
+        font-family: poppins;
+        font-size: 1rem;
+        padding: 0.8rem;
+      }
+  
+      .sidebar .nav-link:hover {
+        color:  var(--clr-primary);
+        /* background-color: rgba(0, 123, 255, 0.1); */
+      }
+  
+      /* Responsive Design */
+      /* Adjust navbar height for mobile screens */
+  @media (max-width: 991px) {
+    .navbar {
+      height: 10vh; /* Reduced height for mobile */
+      padding: 0.5rem 1rem; /* Compact padding */
+    }
+  
+    .navbar-brand img {
+      margin-top: -18px;
+      height: 12vh; 
+      width: auto; 
+    }
+  
+    .nav-link {
+      font-size: 0.9rem; /* Slightly smaller font size for compact spacing */
+    }
+  }
+  .sidebar li{
+    list-style-type: none;
+  }
+  /* .......Header.... */
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+.hero {
+    position: relative;
+    background: url(https://i.pinimg.com/736x/78/59/99/7859993cadb19b5e9658fb97c736d5c7.jpg) center/cover no-repeat;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Black color with 60% opacity */
+    z-index: 1; /* Ensure the overlay is behind the content */
+}
+
+.hero-content {
+    text-align: center;
+    color: #fff;
+    z-index: 2; /* Ensure the content is on top of the overlay */
+}
+
+.hero-title {
+    font-size: 3em;
+    margin-bottom: 20px;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+.hero-subtitle {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+    animation: fadeInUp 1s ease-in-out 0.5s;
+}
+
+.hero-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    text-decoration: none;
+    color: #fff;
+    background-color:rgb(236, 27, 27);
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.hero-button:hover {
+    background-color: white;
+    color: #000;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* .....End Header..... */
+
+       /* footer */
+  
+#container2{
+	max-width: 1170px;
+	margin:auto;
+}
+.row{
+	display: flex;
+	flex-wrap: wrap;
+}
+ul{
+	list-style: none;
+}
+.footer{
+	background-color:rgb(253, 14, 14) ;
+    padding: 70px 0;
+}
+.footer-col{
+   width: 25%;
+   padding: 0 15px;
+}
+.footer-col h4{
+	font-size: 23px;
+	color: #ffffff;
+	text-transform: capitalize;
+	margin-bottom: 35px;
+	font-weight: 500;
+	position: relative;
+}
+.footer-col h4::before{
+	content: '';
+	position: absolute;
+	left:0;
+	bottom: -10px;
+	background-color: white;
+	height: 2px;
+	box-sizing: border-box;
+	width: 50px;
+}
+.footer-col ul li:not(:last-child){
+	margin-bottom: 10px;
+}
+.footer-col ul li a{
+	font-size: 20px;
+	text-transform: capitalize;
+	color: #ffffff;
+	text-decoration: none;
+	font-weight: 300;
+	color: white;
+	display: block;
+	transition: all 0.3s ease;
+}
+.footer-col ul li a:hover{
+	color: #ffffff;
+	padding-left: 8px;
+}
+.footer-col .social-links a{
+
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	background-color: rgba(255,255,255,0.2);
+	margin:0 10px 10px 0;
+	text-align: center;
+	line-height: 40px;
+	border-radius: 50%;
+	color: white;
+	transition: all 0.5s ease;
+}
+.footer-col .social-links a:hover{
+	color: #24262b;
+	background-color: #ffffff;
+}
+
+/*responsive*/
+@media(max-width: 767px){
+  .footer-col{
+    width: 50%;
+    margin-bottom: 30px;
+}
+}
+@media(max-width: 574px){
+  .footer-col{
+    width: 100%;
+}
+}
+/* card responsive */
+@keyframes ripple { 
+  0% { border: 4px solid #dc3032; visibility: visible;  opacity: 1; }
+  100% { border: 4px solid #dc3032; opacity: 0; width: 120px; height: 120px; }
+}
+
+@keyframes fall {
+0%{
+    opacity: 1;
+}
+  100% {
+    transform: translateY(0);
+    transform: scale(2);
+    opacity: 1;
+  }
+}
+
+@keyframes bump {
+  50% {
+    height: 58px;
+    width: 62px;
+    transform: translateY(20px);
+  }
+}
+@keyframes marker {
+  50% {
+    transform: translateY(20px);
+  }
+}
+
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <!-- Logo -->
+        <a href="#" class="navbar-brand">
+          <img src="logo copy.png" alt="Logo">
+        </a>
+        <!-- Hamburger Menu -->
+        <button class="navbar-toggler" id="menuToggle">
+          <i class="fas fa-bars"></i>
+        </button>
+        <!-- Desktop Links -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a href="index.html" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="shop.html" class="nav-link">Shop</a>
+            </li>
+            <li class="nav-item">
+              <a href="smothies.html" class="nav-link">Smoothies</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Snacks</a>
+              <ul class="dropdown-menu">
+                <li><a href="healthy.html" class="dropdown-item">Green Munch</a></li>
+                <li><a href="Style.html" class="dropdown-item">Healthy Snacks</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="about.html" class="nav-link">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="services.html" class="nav-link">Services</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+    <!-- Sidebar for Mobile -->
+    <div class="sidebar" id="mobileSidebar">
+      <button class="close-btn" id="closeSidebar">&times;</button>
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="shop.html" class="nav-link">Shop</a>
+      <a href="smothies.html" class="nav-link">Smoothies</a>
+      <li class="nav-item dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Snacks</a>
+        <ul class="dropdown-menu">
+          <li><a href="healthy.html" class="dropdown-item">Green Munch</a></li>
+          <li><a href="Style.html" class="dropdown-item">Healthy Snacks</a></li>
+        </ul>
+      </li>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="services.html" class="nav-link">Services</a>
+    </div>
+    <!-- ...Header..... -->
+    <header class="hero">
+      <div class="hero-content">
+          <h1 class="hero-title" style="color: white;">Here to Serve You</h1>
+          <p class="hero-subtitle">"Your needs, our priority. We're here to serve you with care and excellence."</p>
+          <a href="#heading" class="hero-button">Contact Us</a>
+      </div>
+  </header>
+  <!--...Main Content..... -->
+  <section class="we-offer-area text-center bg-gray" style="font-family: poppins;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="site-heading text-center">
+                    <h2>What we <span">Offer</span></h2>
+                    <h4>Delivering Excellence Every Step</h4>
+                </div>
+            </div>
+        </div>
+            <div class="row our-offer-items less-carousel">
+                <!-- Single Item -->
+                <div class="col-md-4 col-sm-6 equal-height">
+                    <div class="item">
+                        <i class="fas fa-pen-fancy"></i>
+                        <h4>Dining Bliss</h4>
+                        <p>
+                          "Elevate your dining experience to pure bliss with every delightful dish served."
+                        </p>
+                    </div>
+                </div>
+                <!-- End Single Item -->
+
+                <!-- Single Item -->
+                <div class="col-md-4 col-sm-6 equal-height">
+                    <div class="item">
+                        <i class="fas fa-dharmachakra"></i>
+                        <h4>The Heart of Our Service: You</h4>
+                        <p>
+                          Convenient, nutritious, and delicious meals – your quick solution for healthy eating.
+                        </p>
+                    </div>
+                </div>
+                <!-- End Single Item -->
+
+                <!-- Single Item -->
+                <div class="col-md-4 col-sm-6 equal-height">
+                    <div class="item">
+                        <i class="fas fa-tasks"></i>
+                        <h4>Exclusive Recipe Collections</h4>
+                        <p>
+                          "Find your new favorite meal in our exclusive recipe collections."
+                        </p>
+                    </div>
+                </div>
+                <!-- End Single Item -->
+
+                <!-- Single Item -->
+                <div class="col-md-4 col-sm-6 equal-height">
+                    <div class="item">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <h4>Seasonal Specials & Delights</h4>
+                        <p>
+                          Seasonal flavors, crafted to perfection—experience the delight of every changing season’s taste.
+                        </p>
+                    </div>
+                </div>
+                <!-- End Single Item -->
+
+                <!-- Single Item -->
+                <div class="col-md-4 col-sm-6 equal-height">
+                    <div class="item">
+                        <i class="fas fa-recycle"></i>
+                        <h4>Custom Catering Services</h4>
+                        <p>
+                          Deliciously tailored catering for every occasion, crafted to delight your guests’ senses. 
+                        </p>
+                    </div>
+                </div>
+                <!-- End Single Item -->
+
+                <!-- Single Item -->
+                <div class="col-md-4 col-sm-6 equal-height">
+                    <div class="item">
+                        <i class="fas fa-headset"></i>
+                        <h4>24/7 Foodie Support</h4>
+                        <p>
+                          Hungry? Our 24/7 support ensures you never have to wait for great food.
+                        </p>
+                    </div>
+                </div>
+                <!-- End Single Item -->
+            </div>
+    </div>
+</section>
+
+<!-- services  -->
+<div class="container">
+  <div class="row delivery-section">
+      <!-- Left Column: Food Images (col-md-6) -->
+      <div class="col-md-6">
+          <div class="food-images">
+              <div class="food-img-container">
+                  <img src="1.jpg" alt="Food 1" style="width: 320px;">
+              </div>
+              <div class="food-img-container">
+                  <img src="3.jpg" alt="Food 2" style="width: 320px;">
+              </div>
+          </div>
+      </div>
+
+      <!-- Right Column: Info and CTA (col-md-6) -->
+      <div class="col-md-6">
+          <div class="info" style="font-family: poppins; width: 1">
+              <h2>We deliver food within 30 min</h2>
+              <p>"Get your favorite meals delivered hot and fresh within 30 minutes, ensuring convenience and quality at your doorstep."</p>
+              <div class="cta-buttons">
+                  <button class="cta-btn" style="background-color: rgb(253, 14, 14) ;"><a href="shop.html" style="text-decoration: none; color: #ffffff;">Order Now</a></button>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+<!-- Contact Us -->
+<header id="heading">
+  <h1 style="font-size: 3rem;">Contact Us</h1>
+</header>
+
+<div class="container2">
+  <!-- Contact Form Column -->
+  <div class="column form-column" style="font-family: poppins;">
+      <h2 style="font-size: 2.3rem;">Get in Touch</h2>
+      <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+
+        <input type="hidden" name="access_key" value="96b890d0-ef09-4e21-ab38-2c2f8b21e1c3" />
+          <label for="name" style="font-size: 17px;">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="Enter your full name"
+          pattern="^[A-Za-z]+(?: [A-Za-z]+)*$"
+       title="Only letters, spaces, hyphens, commas, and apostrophes are allowed. At least 2 characters." required>
+          <label for="email" style="font-size: 17px;">Your Email</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email address" 
+                 pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" title="Enter a valid email address (e.g., example@domain.com)." required>
+          
+          <label for="message" style="font-size: 17px;">Message</label>
+          <textarea id="message" name="message" rows="6" placeholder="Write your message here..." minlength="10" 
+                    title="Your message must contain at least 10 characters." required></textarea>
+     
+          <button type="submit" style="font-size: 17px; background-color:antiquewhite; color:rgb(253, 14, 14) ;" >Submit</button>
+      </form>
+  </div>
+
+  <!-- Google Map Column -->
+  <div class="column map-column">
+      <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.835434509914!2d-122.41941508468172!3d37.77492977975943!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085808d90276d49%3A0x539744b6f34b5ef1!2sSan%20Francisco%2C%20CA!5e0!3m2!1sen!2sus!4v1619281057723!5m2!1sen!2sus" 
+          allowfullscreen="" loading="lazy">
+      </iframe>
+  </div>
+</div>
+
+
+
+    
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container" id="container2">
+        <div class="row">
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="shop.html">Shop</a></li>
+              <li><a href="smothies.html">Smoothies</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="services.html">Services</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Support</h4>
+            <ul>
+              <li><a href="help.html">Help Center / FAQs</a></li>
+              <li><a href="conditions.html">Terms & Conditions</a></li>
+              <li><a href="feedback.html">FeedBack</a></li>
+              <li><a href="report.html">Report </a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>User Dashboard</h4>
+            <ul>
+              <li><a href="gift.html">Gift Card</a></li>
+              <li><a href="area.html">Areas Deliverd</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>follow us</h4>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Bootstrap JS CDN -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+       const menuToggle = document.getElementById('menuToggle');
+    const mobileSidebar = document.getElementById('mobileSidebar');
+    const closeSidebar = document.getElementById('closeSidebar');
+
+    menuToggle.addEventListener('click', () => {
+      mobileSidebar.classList.add('show');
+    });
+
+    closeSidebar.addEventListener('click', () => {
+      mobileSidebar.classList.remove('show');
+    });
+      // ..........Map
+      // Initialize and add the map
+      function initMap() {
+        // The location of the center of the map
+        const center = { lat: 37.7749, lng: -122.4194 };
+        // The map, centered at the location
+        const map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 15,
+          center: center,
+        });
+      }
+
+      const checkbox = document.querySelector(
+        '.my-form input[type="checkbox"]'
+      );
+      const btns = document.querySelectorAll(".my-form button");
+
+      checkbox.addEventListener("change", function () {
+        const checked = this.checked;
+        for (const btn of btns) {
+          checked ? (btn.disabled = false) : (btn.disabled = true);
+        }
+      });
+
+      // Show the appropriate form based on the selected inquiry type
+      const inquiryTypeSelect = document.getElementById("inquiry-type");
+      const generalForm = document.getElementById("general-form");
+      const supportForm = document.getElementById("support-form");
+      const feedbackForm = document.getElementById("feedback-form");
+
+      inquiryTypeSelect.addEventListener("change", function () {
+        const selectedValue = inquiryTypeSelect.value;
+
+        // Hide all forms
+        generalForm.style.display = "none";
+        supportForm.style.display = "none";
+        feedbackForm.style.display = "none";
+
+        // Show the selected form
+        if (selectedValue === "general") {
+          generalForm.style.display = "block";
+        } else if (selectedValue === "support") {
+          supportForm.style.display = "block";
+        } else if (selectedValue === "feedback") {
+          feedbackForm.style.display = "block";
+        }
+      });
+
+      // Star Rating System
+      const stars = document.querySelectorAll(".star");
+      const ratingValue = document.getElementById("rating-value");
+
+      stars.forEach((star) => {
+        star.addEventListener("click", function () {
+          const value = this.getAttribute("data-value");
+          ratingValue.textContent = value;
+          stars.forEach((star) => {
+            if (star.getAttribute("data-value") <= value) {
+              star.classList.add("selected");
+            } else {
+              star.classList.remove("selected");
+            }
+          });
+        });
+      });
+      
+    </script>
+  </body>
+</html>

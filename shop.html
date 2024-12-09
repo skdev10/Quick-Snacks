@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop</title>
+    <link rel="icon" href="logo.png" type="icon/type" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="icon" href="logo copy.png" type="icon/type">
+    <!-- BootStrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <!-- font -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="shop.css" />
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        margin: 0;
+        padding: 0;
+        /* background-color: #fff5f2; */
+      }
+
+      /* Navbar Styling */
+      .navbar {
+        font-family: poppins;
+        background-color: #fff5f2;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        padding: 1rem 1.5rem;
+        position: fixed;
+        top: 0;
+        height: 15vh;
+        width: 100%;
+        z-index: 1000;
+      }
+
+      .navbar-brand img {
+        margin-left: -5px;
+        margin-top: 10px;
+        height: 22.9vh;
+        width: 168px;
+      }
+
+      .nav-link {
+        font-size: 19px;
+        font-family: poppins;
+        color: #333333;
+        /* font-weight: 500; */
+        padding: 0.5rem 1rem;
+        transition: color 0.1s, border-bottom 0.1s;
+      }
+
+      .nav-link:hover,
+      .nav-link.active {
+        /* color:  var(--clr-primary); */
+        border-bottom: 2px solid var(--clr-primary);
+      }
+
+      .navbar-toggler {
+        margin-top: -20px;
+        font-size: 1.5rem;
+        border: none;
+        color: #333333;
+      }
+      .dropdown-menu {
+        background-color: #fff5f2;
+        width: auto;
+        height: auto;
+      }
+      .dropdown-menu .dropdown-item {
+        font-size: 18px;
+      }
+
+      /* Mobile Sidebar Styling */
+      .sidebar {
+        position: fixed;
+        top: 0;
+        left: -300px;
+        width: 250px;
+        height: 100%;
+        background-color: #fff5f2;
+        box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        padding: 2rem 1.5rem;
+        gap: 1rem;
+        transition: left 0.3s ease-in-out;
+        z-index: 1050;
+      }
+
+      .sidebar.show {
+        left: 0;
+      }
+
+      .sidebar .close-btn {
+        font-size: 1.5rem;
+        background: none;
+        border: none;
+        align-self: flex-end;
+        cursor: pointer;
+      }
+
+      .sidebar .nav-link {
+        font-family: poppins;
+        font-size: 1rem;
+        padding: 0.8rem;
+        border-bottom: 1px solid #f0f0f0;
+      }
+
+      .sidebar .nav-link:hover {
+        color: var(--clr-primary);
+        background-color: rgba(0, 123, 255, 0.1);
+      }
+
+      /* Responsive Design */
+      /* Adjust navbar height for mobile screens */
+      @media (max-width: 991px) {
+        .navbar {
+          height: 10vh; /* Reduced height for mobile */
+          padding: 0.5rem 1rem; /* Compact padding */
+        }
+
+        .navbar-brand img {
+          margin-top: -18px;
+          height: 12vh;
+          width: auto;
+        }
+
+        .nav-link {
+          font-size: 0.9rem; /* Slightly smaller font size for compact spacing */
+        }
+      }
+      .sidebar li {
+        list-style-type: none;
+      }
+      /* Centering the menu container */
+      .menu-container {
+        margin-top: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 5vh; /* Full viewport height */
+      }
+
+      /* Menu Styles */
+      .menu {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: row; /* Horizontal by default */
+        gap: 20px; /* Space between items */
+      }
+
+      .menu li {
+        text-align: center;
+      }
+
+      .menu a {
+        text-decoration: none;
+        color: #333;
+        font-size: 18px;
+        font-weight: bold;
+        transition: color 0.3s, transform 0.3s;
+      }
+
+      .menu a:hover {
+        border-bottom: 2px solid var(--clr-primary);
+        color: var(--clr-primary);
+        transform: scale(1.1);
+      }
+      .card {
+        margin: 15px;
+        transition: transform 0.3s;
+      }
+
+      .card:hover {
+        transform: scale(1.05);
+      }
+      /* Responsive Styles */
+      @media (max-width: 768px) {
+        .menu {
+          flex-direction: row; /* Stack items vertically on smaller screens */
+          gap: 8px;
+        }
+      }
+      .product-title {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            animation: fadeInScaleUp 1.5s ease-out forwards;
+        }
+
+        .tittle {
+          font-family: poppins;
+            font-size: 25px; 
+            /* font-weight: 700;  */
+            color: rgb(252, 44, 44); 
+            letter-spacing: 2px; 
+            text-transform: uppercase;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+
+        /* Underline with modern effect */
+        .tittle::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: #ff6600; /* Orange underline color */
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
+
+        .tittle:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        @keyframes fadeInScaleUp {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }   
+   </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <!-- Logo -->
+        <a href="#" class="navbar-brand">
+          <img src="logo copy.png" alt="Logo" />
+        </a>
+        <!-- Hamburger Menu -->
+        <button class="navbar-toggler" id="menuToggle">
+          <i class="fas fa-bars"></i>
+        </button>
+        <!-- Desktop Links -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a href="index.html" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="shop.html" class="nav-link">Shop</a>
+            </li>
+            <li class="nav-item">
+              <a href="smothies.html" class="nav-link">Smoothies</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Snacks</a>
+              <ul class="dropdown-menu">
+                <li><a href="healthy.html" class="dropdown-item">Green Munch</a></li>
+                <li><a href="Style.html" class="dropdown-item">Healthy Snacks</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="about.html" class="nav-link">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="services.html" class="nav-link">Services</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+    <!-- Sidebar for Mobile -->
+    <div class="sidebar" id="mobileSidebar">
+      <button class="close-btn" id="closeSidebar">&times;</button>
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="shop.html" class="nav-link">Shop</a>
+      <a href="smothies.html" class="nav-link">Smoothies</a>
+      <li class="nav-item dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Snacks</a>
+        <ul class="dropdown-menu">
+          <li><a href="healthy.html" class="dropdown-item">Green Munch</a></li>
+          <li><a href="Style.html" class="dropdown-item">Healthy Snacks</a></li>
+        </ul>
+      </li>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="services.html" class="nav-link">Services</a>
+    </div>
+    <!-- Banner -->
+    <div class="banner" style="margin-top: 60px;" >
+      <div class="content">
+          <h1>Experience the Taste of Freshness</h1>
+          <p>Explore a variety of our best dishes made from high-quality ingredients to satisfy your cravings.</p>
+          <button class="order-btn"><a href="#discover-page" style="text-decoration: none; color: white;">Order Now</a></button>
+      </div>
+      <div class="image-container">
+          <img src="banner1-removebg-preview.png" alt="Delicious Food Plate" class="banner1" style="
+            width: 477px;
+            height: auto;
+      ">
+      </div>
+      <div class="decorative-shapes">
+          <div class="orange-shape"></div>
+          <img src="leaf-removebg-preview.png" alt="Decorative Leaf" class="leaf">
+      </div>
+  </div>
+
+   <div class="product-title" id="discover-page">
+    <h4 class="tittle">Discover Our Exclusive Product Line</h4>
+   </div>
+   
+    <div class="d-flex justify-content-center flex-wrap" style="margin: 50px">
+      <div class="green-munch card" style="width: 15rem">
+        <div class="card-img-top d-flex justify-content-center">
+          <img
+            src="product1i.jpg"
+            alt="Card image cap"
+            id="card-img"
+            class="item burger"
+          />
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Beef wrap</h5>
+          <p class="card-text text-right">$5.43</p>
+          <button
+            class="btn ripple-effect d-flex align-items-center justify-content-center"
+          >
+            <i class="fas fa-cart-plus"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="card" style="width: 15rem">
+        <div class="card-img-top d-flex justify-content-center">
+          <img
+            src="product2.jpg"
+            alt="Card image cap"
+            id="card-img"
+            class="item burger"
+          />
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Beef Steak</h5>
+          <p class="card-text text-right">$27.23</p>
+          <button
+            class="btn ripple-effect d-flex align-items-center justify-content-center"
+          >
+            <i class="fas fa-cart-plus"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="card" style="width: 15rem">
+        <div class="card-img-top d-flex justify-content-center">
+          <img
+            src="productt3.jpg"
+            alt="Card image cap"
+            id="card-img"
+            class="item burger"
+          />
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">cheezy pasta</h5>
+          <p class="card-text text-right">$10.43</p>
+          <button
+            class="btn ripple-effect d-flex align-items-center justify-content-center"
+          >
+            <i class="fas fa-cart-plus"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="card" style="width: 15rem">
+        <div class="card-img-top d-flex justify-content-center">
+          <img src="product3.jpg" alt="Card image cap" id="card-img" />
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Beef Burger</h5>
+          <p class="card-text text-right">$12.99</p>
+          <button
+            class="btn ripple-effect d-flex align-items-center justify-content-center"
+          >
+            <i class="fas fa-cart-plus"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cards 2 -->
+     <!-- ..........Smoothies Products........ -->
+
+    <div class="d-flex justify-content-center flex-wrap" style="margin: 50px">
+      <div class="card" style="width: 15rem">
+        <div class="card-img-top d-flex justify-content-center">
+          <img src="chocolate tendar cake.jpg" alt="Card image cap" id="card-img" />
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Chocolate Tender Cake</h5>
+          <p class="card-text text-right">$19.99</p>
+          <button
+            class="btn ripple-effect d-flex align-items-center justify-content-center"
+          >
+            <i class="fas fa-cart-plus"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="card" style="width: 15rem">
+        <div class="card-img-top d-flex justify-content-center">
+          <img src="choco strawberry cake.jpg" alt="Card image cap" id="card-img" />
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Choco Strawberry Cake</h5>
+          <p class="card-text text-right">$22.99</p>
+          <button
+            class="btn ripple-effect d-flex align-items-center justify-content-center"
+          >
+            <i class="fas fa-cart-plus"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="card" style="width: 15rem">
+        <div class="card-img-top d-flex justify-content-center">
+          <img src="Traditional Cake.jpg" alt="Card image cap" id="card-img" />
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Tradional Black Forest Cake</h5>
+          <p class="card-text text-right">$19.99</p>
+          <button
+            class="btn ripple-effect d-flex align-items-center justify-content-center"
+          >
+            <i class="fas fa-cart-plus"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="card" style="width: 15rem">
+        <div class="card-img-top d-flex justify-content-center">
+          <img src="creame cake.jpg" alt="Card image cap" id="card-img" />
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Cream Cake</h5>
+          <p class="card-text text-right">$18.99</p>
+          <button
+            class="btn ripple-effect d-flex align-items-center justify-content-center"
+          >
+            <i class="fas fa-cart-plus"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Cards 3 -->
+
+    <div class="d-flex justify-content-center flex-wrap" style="margin: 50px">
+      <div class="card" style="width: 15rem">
+        <div class="card-img-top d-flex justify-content-center">
+          <img src="Strawberry cake.jpg" alt="Card image cap" id="card-img" />
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Strawberry Cake</h5>
+          <p class="card-text text-right">$21.99</p>
+          <button
+            class="btn ripple-effect d-flex align-items-center justify-content-center"
+          >
+            <i class="fas fa-cart-plus"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="card" style="width: 15rem">
+        <div class="card-img-top d-flex justify-content-center">
+          <img src="Donuts cake.jpg" alt="Card image cap" id="card-img" />
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Donuts Cake</h5>
+          <p class="card-text text-right">$26.99</p>
+          <button
+            class="btn ripple-effect d-flex align-items-center justify-content-center"
+          >
+            <i class="fas fa-cart-plus"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="card" style="width: 15rem">
+        <div class="card-img-top d-flex justify-content-center">
+          <img src="Berries Cake.jpg" alt="Card image cap" id="card-img" />
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Berries Cake</h5>
+          <p class="card-text text-right">$33.99</p>
+          <button
+            class="btn ripple-effect d-flex align-items-center justify-content-center"
+          >
+            <i class="fas fa-cart-plus"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="card" style="width: 15rem">
+        <div class="card-img-top d-flex justify-content-center">
+          <img src="Cream Strawberry cake.jpg" alt="Card image cap" id="card-img" />
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Cream Strawberry Cake</h5>
+          <p class="card-text text-right">$26.99</p>
+          <button
+            class="btn ripple-effect d-flex align-items-center justify-content-center"
+          >
+            <i class="fas fa-cart-plus"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- ...Smoothies Products End -->
+    <!-- cards 4 -->
+     
+    <!-- ......Green Munch Products...... -->
+    <div class="d-flex justify-content-center flex-wrap" style="margin: 50px">
+      <div class="card" style="width: 15rem">
+        <div class="card-img-top d-flex justify-content-center">
+          <img src="vaggie bites.jpg" alt="Card image cap" id="card-img" />
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Vaggie Bite</h5>
+          <p class="card-text text-right">$12.00</p>
+          <button
+            class="btn ripple-effect d-flex align-items-center justify-content-center"
+          >
+            <i class="fas fa-cart-plus"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="card" style="width: 15rem">
+        <div class="card-img-top d-flex justify-content-center">
+          <img src="Matcha Energy Balls.jpg" alt="Card image cap" id="card-img" />
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Matcha Energy Balls</h5>
+          <p class="card-text text-right">$11.00</p>
+          <button
+            class="btn ripple-effect d-flex align-items-center justify-content-center"
+          >
+            <i class="fas fa-cart-plus"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="card" style="width: 15rem">
+        <div class="card-img-top d-flex justify-content-center">
+          <img src="Spicy Green Bites.jpg" alt="Card image cap" id="card-img" />
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Spicy Green Bites</h5>
+          <p class="card-text text-right">$8.00</p>
+          <button
+            class="btn ripple-effect d-flex align-items-center justify-content-center"
+          >
+            <i class="fas fa-cart-plus"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="card" style="width: 15rem">
+        <div class="card-img-top d-flex justify-content-center">
+          <img src="Buttermilk Fried Chicken.jpg" alt="Card image cap" id="card-img" />
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">ButterMilk Fried Chicken</h5>
+          <p class="card-text text-right">$12.87</p>
+          <button
+            class="btn ripple-effect d-flex align-items-center justify-content-center"
+          >
+            <i class="fas fa-cart-plus"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- cards 5 -->
+
+    <div class="d-flex justify-content-center flex-wrap" style="margin: 50px">
+      <div class="card" style="width: 15rem">
+        <div class="card-img-top d-flex justify-content-center">
+          <img src="Grill Chicken Sandwich.jpg" alt="Card image cap" id="card-img" />
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Grill Chicken Sandwich</h5>
+          <p class="card-text text-right">$10.33</p>
+          <button
+            class="btn ripple-effect d-flex align-items-center justify-content-center"
+          >
+            <i class="fas fa-cart-plus"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="card" style="width: 15rem">
+        <div class="card-img-top d-flex justify-content-center">
+          <img src="Garlic Parmesan Wings.jpg" alt="Card image cap" id="card-img" />
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Garlic Permesan Wings</h5>
+          <p class="card-text text-right">$8.99</p>
+          <button
+            class="btn ripple-effect d-flex align-items-center justify-content-center"
+          >
+            <i class="fas fa-cart-plus"></i>
+          </button>
+        </div>
+      </div>
+      <!-- ....Green Munch Products End.... -->
+
+      <div class="card" style="width: 15rem">
+        <div class="card-img-top d-flex justify-content-center">
+          <img src="product19i.jpg" alt="Card image cap" id="card-img" />
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">cheeze bombs</h5>
+          <p class="card-text text-right">$2.99</p>
+          <button
+            class="btn ripple-effect d-flex align-items-center justify-content-center"
+          >
+            <i class="fas fa-cart-plus"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="card" style="width: 15rem">
+        <div class="card-img-top d-flex justify-content-center">
+          <img src="product20.jpg" alt="Card image cap" id="card-img" />
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">burger bombs</h5>
+          <p class="card-text text-right">$4.99</p>
+          <button
+            class="btn ripple-effect d-flex align-items-center justify-content-center"
+          >
+            <i class="fas fa-cart-plus"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrapper">
+      <button
+        class="btn shop d-flex align-items-center justify-content-center"
+        aria-label="Open Cart"
+      >
+        <i class="fas fa-cart-plus"></i>
+        <span class="cart-count" aria-live="polite"></span>
+        <!-- The aria-live="polite" will announce updates for screen readers -->
+      </button>
+      <div class="target d-flex align-items-center justify-content-center">
+        <i class="fas fa-box"></i>
+      </div>
+    </div>
+
+    <!-- Sidebar Cart -->
+    <div class="cart-sidebar">
+      <div class="cart-sidebar-header">
+        <h5>Your Cart</h5>
+        <button class="close-cart">X</button>
+      </div>
+
+      <div class="cart-sidebar-content">
+        <ul id="cart-items-list">
+          <!-- Dynamically added cart items -->
+        </ul>
+        <p id="empty-cart-message">No items in cart.</p>
+      </div>
+
+      <div class="cart-sidebar-footer">
+        <p class="total-amount">Total: <strong>$0</strong></p>
+        <button class="checkout-btn">Proceed to Checkout</button>
+        <button class="close-cart-footer">Close</button>
+      </div>
+    </div>
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container" id="container2">
+        <div class="row">
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="shop.html">Shop</a></li>
+              <li><a href="smothies.html">Smoothies</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="services.html">Services</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Support</h4>
+            <ul>
+              <li><a href="help.html">Help Center / FAQs</a></li>
+              <li><a href="conditions.html">Terms & Conditions</a></li>
+              <li><a href="feedback.html">FeedBack</a></li>
+              <li><a href="report.html">Report </a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>User Dashboard</h4>
+            <ul>
+              <li><a href="gift.html">Gift Card</a></li>
+              <li><a href="area.html">Areas Deliverd</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>follow us</h4>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scrip Links -->
+    <script src="shop.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      const menuToggle = document.getElementById("menuToggle");
+      const mobileSidebar = document.getElementById("mobileSidebar");
+      const closeSidebar = document.getElementById("closeSidebar");
+
+      menuToggle.addEventListener("click", () => {
+        mobileSidebar.classList.add("show");
+      });
+
+      closeSidebar.addEventListener("click", () => {
+        mobileSidebar.classList.remove("show");
+      });
+    </script>
+  </body>
+</html>
