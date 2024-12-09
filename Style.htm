@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Snacks For Adults</title>
+    <link rel="icon" href="logo.png" type="icon/type" />
+    <!-- BootStrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <!-- font -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+    href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet"
+  />
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      body {
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+  
+      /* Navbar Styling */
+      .navbar {
+        background-color: #fff5f2;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        padding: 1rem 1.5rem;
+        position: fixed;
+        top: 0;
+        height: 15vh;
+        width: 100%;
+        z-index: 1000;
+      }
+  
+      .navbar-brand img {
+        margin-left: -5px;
+        margin-top: 10px;
+        height:22.9vh;
+        width: 168px;
+      }
+  
+      .nav-link {
+        font-size: 19px;
+        font-family: poppins;
+        color: #333333;
+        /* font-weight: 500; */
+        padding: 0.5rem 1rem;
+        transition: color 0.1s, border-bottom 0.1s;
+      }
+  
+      .nav-link:hover, .nav-link.active {
+        /* color:  var(--clr-primary); */
+        border-bottom: 2px solid  var(--clr-primary);
+      }
+  
+      .navbar-toggler {
+        margin-top: -20px;
+        font-size: 1.5rem;
+        border: none;
+        color: #333333;
+      }
+      .dropdown-menu{
+        background-color: #fff5f2;
+        width: 175px;
+        height: 130px;
+      }
+      .dropdown-menu .dropdown-item{
+        font-size: 18px;
+      }
+  
+      /* Mobile Sidebar Styling */
+      .sidebar {
+        position: fixed;
+        top: 0;
+        left: -300px;
+        width: 250px;
+        height: 100%;
+        background-color:  #fff5f2;
+        box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        padding: 2rem 1.5rem;
+        gap: 1rem;
+        transition: left 0.3s ease-in-out;
+        z-index: 1050;
+      }
+  
+      .sidebar.show {
+        left: 0;
+      }
+  
+      .sidebar .close-btn {
+        font-size: 1.5rem;
+        background: none;
+        border: none;
+        align-self: flex-end;
+        cursor: pointer;
+      }
+  
+      .sidebar .nav-link {
+        font-family: poppins;
+        font-size: 1rem;
+        padding: 0.8rem;
+        border-bottom: 1px solid #f0f0f0;
+      }
+  
+      .sidebar .nav-link:hover {
+        color:  var(--clr-primary);
+        background-color: rgba(0, 123, 255, 0.1);
+      }
+  
+      /* Responsive Design */
+      /* Adjust navbar height for mobile screens */
+  @media (max-width: 991px) {
+    .navbar {
+      height: 10vh; /* Reduced height for mobile */
+      padding: 0.5rem 1rem; /* Compact padding */
+    }
+  
+    .navbar-brand img {
+      margin-top: -18px;
+      height: 12vh; 
+      width: auto; 
+    }
+  
+    .nav-link {
+      font-size: 0.9rem; /* Slightly smaller font size for compact spacing */
+    }
+  }
+  .sidebar li{
+    list-style-type: none;
+  }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <!-- Logo -->
+        <a href="#" class="navbar-brand">
+          <img src="logo.png" alt="Logo">
+        </a>
+        <!-- Hamburger Menu -->
+        <button class="navbar-toggler" id="menuToggle">
+          <i class="fas fa-bars"></i>
+        </button>
+        <!-- Desktop Links -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a href="#" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">Shop</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">Smoothies</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Snacks</a>
+              <ul class="dropdown-menu">
+                <li><a href="#" class="dropdown-item">Snacks for Kids</a></li>
+                <li><a href="#" class="dropdown-item">Snacks for Adults</a></li>
+                <li><a href="#" class="dropdown-item">Other Snacks</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  
+    <!-- Sidebar for Mobile -->
+    <div class="sidebar" id="mobileSidebar">
+      <button class="close-btn" id="closeSidebar">&times;</button>
+      <a href="#" class="nav-link">Home</a>
+      <a href="#" class="nav-link">Shop</a>
+      <a href="#" class="nav-link">Smoothies</a>
+      <li class="nav-item dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Snacks</a>
+        <ul class="dropdown-menu">
+          <li><a href="#" class="dropdown-item">Snacks for Kids</a></li>
+          <li><a href="#" class="dropdown-item">Snacks for Adults</a></li>
+          <li><a href="#" class="dropdown-item">Other Snacks</a></li>
+        </ul>
+      </li>
+      <a href="#" class="nav-link">About</a>
+      <a href="#" class="nav-link">Contact</a>
+    </div>
+
+  <!-- Hero Section -->
+  <header class="text-white text-center py-5">
+    <div class="container">
+      <h1>Delicious Snacks for Adults</h1>
+      <p>Indulge in the best snacks curated just for adults.</p>
+    </div>
+  </header>
+  <!--background-Image -->
+  <header class="background">
+    <div class="text">
+      <h1 class="font1">Healthy Snacks</h1>
+      <p class="font2">"Discover a dining experience that delights your taste buds and warms your soul."
+    </p>
+    <button class="buttonx"> Shop Now</button>
+    </div>
+  </header>
+  
+ <!-- Gallery Section -->
+ 
+       <div class="slider">
+
+        <div class="slide-track">
+
+        <!-- 9 slides -->
+           <div class="slide">
+           <img src="1.JPEG" class="img">
+           </div>
+           <div class="slide">
+           <img src="2.JPEG" class="img">
+           </div>
+           <div class="slide">
+           <img src="3.JPEG" class="img">
+           </div>
+           <div class="slide">
+           <img src="4.JPEG" class="img">
+           </div>
+           <div class="slide">
+           <img src="5.JPEG" class="img">
+           </div>
+           <div class="slide">
+           <img src="6.JPEG" class="img">
+           </div>
+           <div class="slide">
+           <img src="7.JPEG" class="img">
+           </div>
+           <div class="slide">
+           <img src="9.JPEG" class="img">
+           </div>
+          
+
+           <!-- Same 9 slides -->
+
+           <div class="slide">
+            <img src="1.JPEG" class="img">
+            </div>
+            <div class="slide">
+            <img src="2.JPEG" class="img">
+            </div>
+            <div class="slide">
+            <img src="3.JPEG" class="img">
+            </div>
+            <div class="slide">
+            <img src="4.JPEG" class="img">
+            </div>
+            <div class="slide">
+            <img src="5.JPEG" class="img">
+            </div>
+            <div class="slide">
+            <img src="6.JPEG" class="img">
+            </div>
+            <div class="slide">
+            <img src="7.JPEG" class="img">
+            </div>
+            <div class="slide">
+            <img src="9.JPEG" class="img">
+            </div>
+            <div class="slide">
+            <img src="9.JPEG" class="img">
+            </div>
+
+          </div>
+         </div>
+ 
+  <!-- Section -->
+  <section id="collection">
+    <div class="collections container">
+        <div class="content">
+            <img src="burger.JPEG" alt="img" />
+            <div class="img-content">
+                <p>Burgers</p>
+                <button><a href="#sellers">SHOP NOW</a></button>
+            </div>
+        </div>
+        <div class="content2">
+            <img src="Chips.JPEG" alt="img" />
+            <div class="img-content2">
+                <p>French Fries</p>
+                <button><a href="#sellers">SHOP NOW</a></button>
+            </div>
+        </div>
+        <div class="content3">
+            <img src="grilled.JPEG" alt="img" />
+            <div class="img-content3">
+                <p>Gril Chicken</p>
+                <button><a href="#sellers">SHOP NOW</a></button>
+            </div>
+        </div>
+        <!-- Card Row 2 -->
+        <div class="content">
+          <img src="Pizza.JPEG" alt="img" />
+          <div class="img-content">
+              <p>Pizza</p>
+              <button><a href="#sellers">SHOP NOW</a></button>
+          </div>
+      </div>
+      <div class="content2">
+          <img src="pasta.JPEG" alt="img" />
+          <div class="img-content2">
+              <p>Chowmein</p>
+              <button><a href="#sellers">SHOP NOW</a></button>
+          </div>
+      </div>
+      <div class="content3">
+          <img src="Golgappy.JPEG" alt="img" />
+          <div class="img-content3">
+              <p>Goll gappa</p>
+              <button><a href="#sellers">SHOP NOW</a></button>
+          </div>
+      </div>
+      <!-- Card Row 3 -->
+      <div class="content">
+        <img src="samosa.JPEG" alt="img" />
+        <div class="img-content">
+            <p>Samosa</p>
+            <button><a href="#sellers">SHOP NOW</a></button>
+        </div>
+    </div>
+    <div class="content2">
+        <img src="meat.JPEG" alt="img" />
+        <div class="img-content2">
+            <p>Seekh Kabab</p>
+            <button><a href="#sellers">SHOP NOW</a></button>
+        </div>
+    </div>
+    <div class="content3">
+        <img src="Roll.JPEG" alt="img" />
+        <div class="img-content3">
+            <p>Mint rolls</p>
+            <button><a href="#sellers">SHOP NOW</a></button>
+        </div>
+    </div>
+    </div>
+</section>
+
+    <!-- gallery section -->
+
+  <section id="gallery" style="margin-top: -10px;">
+    <div class="container">
+      <div id="image-gallery">
+        <div class="row">
+          <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 image">
+            <div class="img-wrapper">
+              <a href="A.JPEG"><img src="A.JPEG" class="img-responsive"></a>
+              <div class="img-overlay">
+                <i class="fa fa-plus-circle" aria-hidden="true"></i>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 image">
+            <div class="img-wrapper">
+              <a href="B.JPEG"><img src="B.JPEG" class="img-responsive"></a>
+              <div class="img-overlay">
+                <i class="fa fa-plus-circle" aria-hidden="true"></i>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 image">
+            <div class="img-wrapper">
+              <a href="C.JPEG"><img src="C.JPEG" class="img-responsive"></a>
+              <div class="img-overlay">
+                <i class="fa fa-plus-circle" aria-hidden="true"></i>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 image">
+            <div class="img-wrapper">
+              <a href="D.JPEG"><img src="D.JPEG" class="img-responsive"></a>
+              <div class="img-overlay">
+                <i class="fa fa-plus-circle" aria-hidden="true"></i>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 image">
+            <div class="img-wrapper">
+              <a href="E.JPEG"><img src="E.JPEG" class="img-responsive"></a>
+              <div class="img-overlay">
+                <i class="fa fa-plus-circle" aria-hidden="true"></i>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 image">
+            <div class="img-wrapper">
+              <a href="F.JPEG"><img src="F.JPEG" class="img-responsive"></a>
+              <div class="img-overlay">
+                <i class="fa fa-plus-circle" aria-hidden="true"></i>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 image">
+            <div class="img-wrapper">
+              <a href="G.JPEG"><img src="G.JPEG" class="img-responsive"></a>
+              <div class="img-overlay">
+                <i class="fa fa-plus-circle" aria-hidden="true"></i>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 image">
+            <div class="img-wrapper">
+              <a href="H.JPEG"><img src="H.JPEG" class="img-responsive"></a>
+              <div class="img-overlay">
+                <i class="fa fa-plus-circle" aria-hidden="true"></i>
+              </div>
+            </div>
+          </div>
+        </div><!-- End row -->
+      </div><!-- End image gallery -->
+    </div><!-- End container --> 
+  </section>
+  
+      <!-- Footer -->
+    <footer class="footer" style="margin-top: 40px;">
+      <div class="container" id="container2">
+        <div class="row">
+          <div class="footer-col">
+            <h4>Quick Snacks</h4>
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Shop</a></li>
+              <li><a href="#">Smoothies</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Order Now</h4>
+            <ul>
+              <li><a href="#">Shops</a></li>
+              <li><a href="#">Menu</a></li>
+              <li><a href="#">Reviews</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>online shop</h4>
+            <ul>
+              <li><a href="#">Smoothies</a></li>
+              <li><a href="#">Snacks</a></li>
+              <li><a href="#">Pizza</a></li>
+              <li><a href="#">Pasta</a></li>
+              <li><a href="#">Burger</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>follow us</h4>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  
+  <script src="script.js"></script>
+  <!-- Bootstrap JS and Popper.js -->
+   <!-- Bootstrap CSS -->
+   <script
+   src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+   integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+   crossorigin="anonymous"
+ ></script>
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileSidebar = document.getElementById('mobileSidebar');
+    const closeSidebar = document.getElementById('closeSidebar');
+
+    menuToggle.addEventListener('click', () => {
+      mobileSidebar.classList.add('show');
+    });
+
+    closeSidebar.addEventListener('click', () => {
+      mobileSidebar.classList.remove('show');
+    });
+  </script>
+
+</body>
+
+</html>
